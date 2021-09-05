@@ -1,12 +1,14 @@
-import React from "react";
+import React from 'react'
+import PropTypes from "prop-types";
 
-const Navbar = () => {
+
+const Navbar = (props) => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            TextUtils
+            {props.logo}
           </a>
           <button
             className="navbar-toggler"
@@ -28,7 +30,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/about">
-                  About
+                  {props.aboutText}
                 </a>
               </li>
             </ul>
@@ -50,4 +52,14 @@ const Navbar = () => {
   );
 };
 
+Navbar.propTypes = {
+  logo: PropTypes.string.isRequired,
+  aboutText: PropTypes.string.isRequired
+}
+
+Navbar.defaultProps  = {
+
+  logo: "Your Logo",
+  aboutText : "About"
+}
 export default Navbar;
