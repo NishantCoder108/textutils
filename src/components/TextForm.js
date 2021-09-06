@@ -45,6 +45,19 @@ const TextForm = (props) => {
     }
     setText(capitalCase(text));
   }
+
+  //Handle Copy click
+  function handleCopyClick() {
+      let copyText = document.getElementById("mybox")
+       copyText.select();
+    //    navigator.clipboard.writeText(copyText.value)
+  }
+
+  //Remove extra spaces
+  function handleRemoveSpaceClick() {
+      let newText = text.split(/[ ] + /);
+      setText(newText.join(" "))
+  }
   //HandleChange Function
   function handleChange(e) {
     setText(e.target.value);
@@ -72,7 +85,7 @@ const TextForm = (props) => {
           {text.split(" ").length} words & {text.length} characters
         </p>
         <h2> Preview</h2>
-        <textarea className="form-control" rows="5" value={text}></textarea>
+        <textarea className="form-control" rows="5" value={text} id="mybox"></textarea>
         <button className="btn btn-primary my-3 " onClick={handleUpClick}>
           Set To UpperCase
         </button>
@@ -87,6 +100,12 @@ const TextForm = (props) => {
         </button>
         <button className="btn btn-primary my-3 mx-3" onClick={handleCapClick}>
           Set To Capital Case
+        </button>
+        <button className="btn btn-primary my-3 mx-3" onClick={handleCopyClick}>
+         Copy Text
+        </button>
+        <button className="btn btn-primary my-3 mx-3" onClick={handleRemoveSpaceClick}>
+       Remove Extra Space
         </button>
       </div>
     </>
