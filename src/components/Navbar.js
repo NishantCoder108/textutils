@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 import PropTypes from "prop-types";
-
 
 const Navbar = (props) => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav
+        className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+      >
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             {props.logo}
@@ -34,7 +35,7 @@ const Navbar = (props) => {
                 </a>
               </li>
             </ul>
-            <form className="d-flex">
+            {/* <form className="d-flex">
               <input
                 className="form-control me-2"
                 type="search"
@@ -44,7 +45,21 @@ const Navbar = (props) => {
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
-            </form>
+            </form> */}
+
+            <div className="form-check form-switch" onClick={props.toggle}>
+              <input
+                className="form-check-input "
+                type="checkbox"
+                id="flexSwitchCheckDefault"
+              />
+              <label
+                className="form-check-label "
+                htmlFor="flexSwitchCheckDefault"
+              >
+                {props.mode} Mode
+              </label>
+            </div>
           </div>
         </div>
       </nav>
@@ -54,12 +69,11 @@ const Navbar = (props) => {
 
 Navbar.propTypes = {
   logo: PropTypes.string.isRequired,
-  aboutText: PropTypes.string.isRequired
-}
+  aboutText: PropTypes.string.isRequired,
+};
 
-Navbar.defaultProps  = {
-
+Navbar.defaultProps = {
   logo: "Your Logo",
-  aboutText : "About"
-}
+  aboutText: "About",
+};
 export default Navbar;

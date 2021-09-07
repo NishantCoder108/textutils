@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React, { useState } from "react";
 
 const About = () => {
   const [style, setStyle] = useState({
@@ -6,23 +6,25 @@ const About = () => {
     backgroundColor: "white",
   });
 
-
+  const [textchange, setTextchange] = useState("Enable Dark Mode");
   //Toggle wrapper , Dark and Light Mode
 
   function toggleWrap() {
-      if(style.color==="black"){
-          setStyle({
-              color : "white",
-              backgroundColor : "black",
-              border : "1px solid white"
-          })
-      }
-      else {
-        setStyle({
-              color :"black",
-              backgroundColor : "white"
-          })
-      }
+    if (style.color === "black") {
+      setStyle({
+        color: "white",
+        backgroundColor: "black",
+        border: "1px solid white",
+      });
+
+      setTextchange("Enable Light Mode");
+    } else {
+      setStyle({
+        color: "black",
+        backgroundColor: "white",
+      });
+      setTextchange("Enable Dark Mode");
+    }
   }
   return (
     <>
@@ -129,9 +131,8 @@ const About = () => {
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-primary" onClick={toggleWrap}>
-          
-          Enable Dark Mode
+        <button type="button" className="btn btn-primary" onClick={toggleWrap}>
+          {textchange}
         </button>
       </div>
     </>
