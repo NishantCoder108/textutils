@@ -2,6 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Navbar = (props) => {
+  function Capitalize(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }
   return (
     <>
       <nav
@@ -54,10 +57,10 @@ const Navbar = (props) => {
                 id="flexSwitchCheckDefault"
               />
               <label
-                className="form-check-label "
+                className="form-check-label"
                 htmlFor="flexSwitchCheckDefault"
               >
-                {props.mode} Mode
+                {Capitalize(`${props.mode} `)}Mode
               </label>
             </div>
           </div>

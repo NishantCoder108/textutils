@@ -7,17 +7,20 @@ const TextForm = (props) => {
   function handleUpClick() {
     // console.log("Up clicked" + text);
     setText(text.toUpperCase());
+    props.showAlert("converted to uppercase" , "info")
   }
 
   //Lower case Function
   function handleDoClick() {
     // console.log("Down clicked" + text);
     setText(text.toLowerCase());
+    props.showAlert("Converted to lowercase" , "info")
   }
   //clear Function
   function handleCleClick() {
     // console.log("clear clicked" + text);
     setText("");
+    props.showAlert("Cleared text" , "info")
   }
 
   //Titleclick Function
@@ -33,6 +36,7 @@ const TextForm = (props) => {
     }
 
     setText(titleCase(text));
+    props.showAlert("converted to titlecase" , "info")
   }
 
   //Capital case Function
@@ -44,6 +48,7 @@ const TextForm = (props) => {
       return f;
     }
     setText(capitalCase(text));
+    props.showAlert("converted to capitalcase" , "info")
   }
 
   //Handle Copy click
@@ -51,17 +56,21 @@ const TextForm = (props) => {
       let copyText = document.getElementById("mybox")
        copyText.select();
     //    navigator.clipboard.writeText(copyText.value)
+
+    props.showAlert("Copied to Clipboard" , "info")
   }
 
   //Remove extra spaces
   function handleRemoveSpaceClick() {
       let newText = text.split(/[ ] + /);
       setText(newText.join(" "))
+      props.showAlert("Extra Space Removed" , "info")
   }
   //HandleChange Function
   function handleChange(e) {
     setText(e.target.value);
     // console.log("handlechange");
+
   }
   return (
     <>
