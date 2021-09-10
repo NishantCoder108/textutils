@@ -4,6 +4,7 @@ import TextForm from "./components/TextForm";
 import About from "./components/About";
 import React, { useState } from "react";
 import Alert from "./components/Alert";
+import {  Route } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState({
     color: "light",
@@ -53,11 +54,13 @@ function App() {
         toggle={toggle}
       />
       <Alert alert={alert} />
-      <div className="container my-5">
-        <TextForm showAlert={showAlert} text="Enter Your Text and Analyze" />
-      </div>
 
-      <About />
+      <div className="container my-5">
+        <Route exact path="/about" component={About} />
+        <Route exact path="/">
+          <TextForm showAlert={showAlert} text="Enter Your Text and Analyze" />
+        </Route>
+      </div>
     </>
   );
 }

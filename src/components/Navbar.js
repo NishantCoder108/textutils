@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import {Link} from 'react-router-dom'
 const Navbar = (props) => {
   function Capitalize(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
@@ -11,9 +11,17 @@ const Navbar = (props) => {
         className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            {props.logo}
-          </a>
+          <Link className="navbar-brand" to="/">
+            <img
+              style={{
+                width: "48px",
+                borderRadius: "30px",
+                margin: "1px 3px 1px 3px",
+              }}
+              src="https://media-exp1.licdn.com/dms/image/C5603AQFsbEuiE5YS7Q/profile-displayphoto-shrink_100_100/0/1618945058673?e=1636588800&v=beta&t=jI1fTfbCNb-xhFBxfz7dc5Sii6oIC3s2uZyZJwd16SY"
+              alt="Logo Img"
+            />
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -28,14 +36,14 @@ const Navbar = (props) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/about">
+                <Link className="nav-link" to="/about">
                   {props.aboutText}
-                </a>
+                </Link>
               </li>
             </ul>
             {/* <form className="d-flex">

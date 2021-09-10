@@ -11,8 +11,7 @@ const Alert = (props) => {
           class={`alert alert-${props.alert.type} alert-dismissible fade show`}
           role="alert"
         >
-          <strong>{Capitalize(`${props.alert.msg}`)}</strong>---
-          {props.alert.type}
+          <strong>{Capitalize(`${props.alert.msg}`)}</strong>
           <button
             type="button"
             class="btn-close"
