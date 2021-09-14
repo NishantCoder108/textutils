@@ -56,7 +56,7 @@ const TextForm = (props) => {
   //Handle Copy click
   function handleCopyClick() {
     let copyText = document.getElementById("mybox");
-    copyText.select();
+    // copyText.select();
     navigator.clipboard.writeText(copyText.value);
     document.getSelection().removeAllRanges();
     props.showAlert("Copied to Clipboard", "info");
@@ -97,7 +97,7 @@ const TextForm = (props) => {
 
         <p>
           {
-            text.split(" ").filter((element) => {
+            text.split(/\s+/).filter((element) => {
               return element.length !== 0;
             }).length
           }
