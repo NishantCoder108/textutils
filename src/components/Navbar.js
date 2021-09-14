@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 const Navbar = (props) => {
   function Capitalize(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
+  const [palete, setPalete] = useState({
+    backgroundColor: "green",
+  });
+
+
+  function paleteColor(pcolor) {
+    let d = (document.body.style.backgroundColor = pcolor);
+
+    pcolor ==="black" ? (document.body.style.color = "white") : (document.body.style.color ="black")
+        setPalete(d);
   }
   return (
     <>
@@ -57,6 +69,88 @@ const Navbar = (props) => {
                 Search
               </button>
             </form> */}
+
+            {/* Color Palette */}
+            <div
+              style={{
+                backgroundColor: "red",
+                width: "20px",
+                height: "20px",
+
+                margin: "7px 12px 9px 3px",
+                borderRadius: "6px",
+              }}
+              onClick={() => {
+                return paleteColor("red");
+              }}
+            ></div>
+            <div
+              style={{
+                backgroundColor: "green",
+                width: "20px",
+                height: "20px",
+
+                margin: "7px 12px 9px 3px",
+                borderRadius: "6px",
+              }}
+              onClick={() => {
+                return paleteColor("green");
+              }}
+            ></div>
+            <div
+              style={{
+                backgroundColor: "yellow",
+                width: "20px",
+                height: "20px",
+
+                margin: "7px 12px 9px 3px",
+                borderRadius: "6px",
+              }}
+              onClick={() => {
+                return paleteColor("yellow");
+              }}
+            ></div>
+            <div
+              style={{
+                backgroundColor: "orange",
+                width: "20px",
+                height: "20px",
+
+                margin: "7px 12px 9px 3px",
+                borderRadius: "6px",
+              }}
+              onClick={() => {
+                return paleteColor("orange");
+              }}
+            ></div>
+            <div
+              style={{
+                backgroundColor: "violet",
+                width: "20px",
+                height: "20px",
+
+                margin: "7px 12px 9px 3px",
+                borderRadius: "6px",
+              }}
+              onClick={() => {
+                return paleteColor("violet");
+              }}
+            ></div>
+            <div
+              style={{
+                backgroundColor: "black",
+                width: "20px",
+                height: "20px",
+
+                margin: "7px 12px 9px 3px",
+                borderRadius: "6px",
+              }}
+              onClick={() => {
+                return paleteColor("black");
+              }}
+            ></div>
+
+
 
             <div className="form-check form-switch" onClick={props.toggle}>
               <input
