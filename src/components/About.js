@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 
-const About = () => {
-  const [style, setStyle] = useState({
+const About = (props) => {
+  /* const [style, setStyle] = useState({
     color: "black",
     backgroundColor: "white",
   });
 
+  let style = {
+    color: props.mode ? "black" : "white",
+    backgroundColor: props.mode ? "white" : "black",
+  };
   const [textchange, setTextchange] = useState("Enable Dark Mode");
-  //Toggle wrapper , Dark and Light Mode
+  Toggle wrapper , Dark and Light Mode
 
   function toggleWrap() {
     if (style.color === "black") {
@@ -26,6 +30,12 @@ const About = () => {
       setTextchange("Enable Dark Mode");
     }
   }
+  */
+
+  let style = {
+    color : props.mode ==="dark" ? "white" : "black",
+    backgroundColor : props.mode ==="dark" ? 'black' :"white"
+  }
   return (
     <>
       <div className="container my-5" style={style}>
@@ -42,7 +52,7 @@ const About = () => {
                 aria-controls="collapseOne"
                 style={style}
               >
-                Accordion Item #1
+                <strong> Analyze Your Text </strong>
               </button>
             </h2>
             <div
@@ -52,13 +62,14 @@ const About = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body" style={style}>
-                <strong>This is the first item's accordion body.</strong> It is
-                shown by default, until the collapse plugin adds the appropriate
-                classes that we use to style each element. These classes control
-                the overall appearance, as well as the showing and hiding via
-                CSS transitions. You can modify any of this with custom CSS or
-                overriding our default variables. It's also worth noting that
-                just about any HTML can go within the{" "}
+                {" "}
+                TextUtils give you way to ,This is the first item's accordion
+                body. It is shown by default, until the collapse plugin adds the
+                appropriate classes that we use to style each element. These
+                classes control the overall appearance, as well as the showing
+                and hiding via CSS transitions. You can modify any of this with
+                custom CSS or overriding our default variables. It's also worth
+                noting that just about any HTML can go within the{" "}
                 <code>.accordion-body</code>, though the transition does limit
                 overflow.
               </div>
@@ -75,7 +86,7 @@ const About = () => {
                 aria-controls="collapseTwo"
                 style={style}
               >
-                Accordion Item #2
+                <strong> Free to Use </strong>
               </button>
             </h2>
             <div
@@ -85,15 +96,16 @@ const About = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body" style={style}>
-                <strong>This is the second item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                {" "}
+                TextUtils is free character to use ,This is the second item's
+                accordion body. It is hidden by default, until the collapse
+                plugin adds the appropriate classes that we use to style each
+                element. These classes control the overall appearance, as well
+                as the showing and hiding via CSS transitions. You can modify
+                any of this with custom CSS or overriding our default variables.
+                It's also worth noting that just about any HTML can go within
+                the <code>.accordion-body</code>, though the transition does
+                limit overflow.
               </div>
             </div>
           </div>
@@ -108,7 +120,7 @@ const About = () => {
                 aria-controls="collapseThree"
                 style={style}
               >
-                Accordion Item #3
+                <strong> Browser Compatible</strong>
               </button>
             </h2>
             <div
@@ -118,22 +130,19 @@ const About = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body" style={style}>
-                <strong>This is the third item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the{" "}
+                This word counter software is mainly. It is hidden by default,
+                until the collapse plugin adds the appropriate classes that we
+                use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS
+                transitions. You can modify any of this with custom CSS or
+                overriding our default variables. It's also worth noting that
+                just about any HTML can go within the{" "}
                 <code>.accordion-body</code>, though the transition does limit
                 overflow.
               </div>
             </div>
           </div>
         </div>
-        <button type="button" className="btn btn-primary" onClick={toggleWrap}>
-          {textchange}
-        </button>
       </div>
     </>
   );

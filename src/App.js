@@ -4,7 +4,7 @@ import TextForm from "./components/TextForm";
 import About from "./components/About";
 import React, { useState } from "react";
 import Alert from "./components/Alert";
-import {  Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState({
     color: "light",
@@ -35,6 +35,13 @@ function App() {
       showAlert("Dark Mode Enabled", "success");
       document.body.style.backgroundColor = "black";
       document.body.style.color = "white";
+      // document.title = "Text -Dark Mode";
+      // setInterval(() => {
+      //   document.title = "Text -Amazing Dark Mode";
+      // }, 2000);
+      // setInterval(() => {
+      //   document.title = "Install Text -App";
+      // }, 1500);
     } else {
       setMode({
         color: "light",
@@ -42,6 +49,7 @@ function App() {
       showAlert("Light Mode Enabled", "info");
       document.body.style.backgroundColor = "white";
       document.body.style.color = "black";
+      // document.title = "Text -Light  Mode";
     }
   }
 
@@ -56,9 +64,15 @@ function App() {
       <Alert alert={alert} />
 
       <div className="container my-5">
-        <Route exact path="/about" component={About} />
+        <Route exact path="/about">
+          <About mode={mode.color} />
+        </Route>
         <Route exact path="/">
-          <TextForm showAlert={showAlert} text="Enter Your Text and Analyze" />
+          <TextForm
+            showAlert={showAlert}
+            mode={mode.color}
+            text="Try TextUtils - Word Counter, Character Counter"
+          />
         </Route>
       </div>
     </>
